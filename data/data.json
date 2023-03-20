@@ -1,0 +1,20 @@
+[
+    {
+        "firstname": "testing",
+        "lastname": "last",
+        "birthday": 3,
+        "birthmoth": "March",
+        "birthyear": "1992",
+        "email": "testing",
+        "password": "password"
+    },
+    {
+        "firstname": "testing2",
+        "lastname": "last2",
+        "birthday": 4,
+        "birthmoth": "April",
+        "birthyear": "1993",
+        "email": "anothertesting",
+        "password": "password"
+    }
+]
