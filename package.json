@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
+    "test": "testcafe tests/**/*.js -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "author": "",
   "license": "ISC",
