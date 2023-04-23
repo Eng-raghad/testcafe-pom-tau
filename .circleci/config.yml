@@ -15,10 +15,16 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools
       - node/install-packages
+      - run: mkdir ~/tcresult
       - run:
-          command: npm run test
+          command: 
+            TEST =$(circleci tests glob "tests/**/*.js" | circleci tests split --split-by=timings)
+            npm run test $TEST
+      - run:
+          command: cp junit.xml ~/tcresult/
+          when: always
       - store_test_results:
-          path: /tmp/test-results    
+          path: ~/tcresult   
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
