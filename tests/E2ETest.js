@@ -26,7 +26,7 @@ dataSet.forEach(data => {
 
     });
 
-/*     test('E2E Test', async t => {
+    test('E2E Test', async t => {
         await t
             .maximizeWindow()
             .click(homePage.registerLink)
@@ -76,7 +76,7 @@ dataSet.forEach(data => {
             .expect(customerPage.noOrdersLabel.exists).notOk
 
     }
-    ); */
+    );
 
     test('change currency', async t => {
         await homePage.changeCurrency('Euro');
