@@ -20,9 +20,6 @@ jobs:
           command: 
             TEST=$(circleci tests glob "tests/**/*.js" | circleci tests split --split-by=timings)
             npm run test $TEST
-      - run:
-          command: cp junit.xml ~/tcresult/
-          when: always
       - store_test_results:
           path: ~/tcresult   
 # Invoke jobs via workflows
