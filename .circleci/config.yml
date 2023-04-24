@@ -11,6 +11,7 @@ jobs:
   sanity:
     docker:
       - image: cimg/node:lts-browsers
+    parallelism: 3
     steps:
       - checkout
       - browser-tools/install-browser-tools
