@@ -17,7 +17,7 @@ jobs:
       - node/install-packages
       - run: mkdir ~/tcresult
       - run:
-          command: 
+          command: |
             circleci tests glob "tests/**/*.js" | circleci tests split --split-by=timings > /tmp/results
             npm run test
       - store_test_results:
