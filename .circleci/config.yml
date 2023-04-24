@@ -21,7 +21,7 @@ jobs:
           command: circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/results
       - run:
           name: run tests
-          command: npm run testcafe -- $(cat /tmp/results)
+          command: npm run test -- $(cat /tmp/results)
       - store_test_results:
           path: /tmp/results  
 # Invoke jobs via workflows
