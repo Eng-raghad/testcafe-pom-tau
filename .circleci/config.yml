@@ -17,9 +17,11 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: |
-            circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/results
-            npm run test
+          name: split tests
+          command: circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/results
+      - run:
+          name: run tests
+          command: npm run testcafe -- $(cat /tmp/results)
       - store_test_results:
           path: /tmp/results  
 # Invoke jobs via workflows
