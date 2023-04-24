@@ -18,7 +18,7 @@ jobs:
       - node/install-packages
       - run:
           name: split tests
-          command: circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/results
+          command: circleci tests glob "tests/*.js" | circleci tests split --split-by=timings --time-default=10s > /tmp/results
       - run:
           name: run tests
           command: npm run test -- $(cat /tmp/results)
