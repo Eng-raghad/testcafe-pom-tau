@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe -r spec,xunit:/tmp/test-results/testcafe/results.xml"
+    "test": "testcafe $TEST -r spec,xunit:/tmp/test-results/testcafe/results.xml"
   },
   "author": "",
   "license": "ISC",
