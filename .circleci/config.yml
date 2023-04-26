@@ -20,13 +20,13 @@ jobs:
       - run:
           name: run tests
           command: |
-            TEST=$(circleci tests glob "/project/tests/*.js" | circleci tests split --split-by=timings)
+            TEST=$(circleci tests glob "/tests/*.js" | circleci tests split --split-by=timings)
             echo "$TEST"
             if [ -n "$TEST" ]; then
               npm run test $TEST
             else
               echo "No test files found"
-            fix
+            fi
       - run:
           command: cp /tmp/test-results/testcafe/results.xml ~/abc
           when: always
