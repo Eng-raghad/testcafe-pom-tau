@@ -19,7 +19,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            circleci tests glob "**/tests/*.js" | circleci tests split --split-by=timings > /tmp/tests-to-run
+            circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/tests-to-run
             npm run test
       - store_test_results:
           path: reports/xunit.xml
