@@ -19,10 +19,10 @@ jobs:
       - run:
           name: run tests
           command: |
-            circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/tests-to-run
+            circleci tests glob "**/tests/*.js" | circleci tests split --split-by=timings > /tmp/tests-to-run
             npm run test
       - store_test_results:
-          path: /tmp/tests-to-run
+          path: reports/xunit.xml
       - store_artifacts:
           path: artifacts/screenshots
 # Invoke jobs via workflows

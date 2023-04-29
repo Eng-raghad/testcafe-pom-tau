@@ -2,7 +2,7 @@
     "browsers": ["chrome:headless"],
     "src": "tests",
     "screenshots": {
-        "path": "screenshots",
+        "path": "reports/screenshots",
         "takeOnFails": true,
         "fullPage": true
     },
@@ -14,5 +14,10 @@
     "concurrency": 1,
     "selectorTimeout": 30000,
     "assertionTimeout": 1000,
-    "pageLoadTimeout": 1000
+    "pageLoadTimeout": 1000,
+    "reporter":
+        {
+        "name": "xunit",
+        "output": "reports/xunit.xml"
+        }
 }
