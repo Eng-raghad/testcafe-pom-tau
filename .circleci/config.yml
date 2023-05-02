@@ -17,7 +17,6 @@ jobs:
       - checkout
       - browser-tools/install-chrome
       - node/install-packages
-      - run: npm install
       - run:
           name: print current working directory
           command: pwd
