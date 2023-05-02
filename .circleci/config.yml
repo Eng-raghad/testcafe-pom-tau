@@ -11,6 +11,8 @@ jobs:
   sanity:
     docker:
       - image: cimg/node:lts-browsers
+    environment:
+        CIRCLE_WORKING_DIRECTORY: /home/circleci/project/
     parallelism: 3
     steps:
       - checkout
@@ -22,7 +24,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            circleci tests glob "tests/*.js" | circleci tests split --split-by=timings > /tmp/tests-to-run
+            circleci tests glob $CIRCLE_WORKING_DIRECTORY/tests/*.js | circleci tests split --split-by=timings > /tmp/tests-to-run
             npm run test 
       - store_test_results:
           path: /tmp/test-results
