@@ -10,7 +10,7 @@ orbs:
 jobs: 
   sanity:
     docker:
-      - image: cimg/node:12.16
+      - image: cimg/node:lts-browsers
     parallelism: 3
     steps:
       - browser-tools/install-chrome
