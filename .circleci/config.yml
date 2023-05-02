@@ -13,6 +13,7 @@ jobs:
       - image: cimg/node:lts-browsers
     parallelism: 3
     steps:
+      - checkout
       - browser-tools/install-chrome
       - node/install-packages
       - run:
