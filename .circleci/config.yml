@@ -9,7 +9,6 @@ orbs:
 
 jobs: 
   sanity:
-    circleci_ip_ranges: true 
     docker:
       - image: cimg/node:lts-browsers
     parallelism: 3
