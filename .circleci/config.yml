@@ -10,12 +10,14 @@ orbs:
 jobs: 
   sanity:
     docker:
-      - image: cimg/node:lts-browsers
+      - image: cimg/node:12.16
+    working_directory: ~/repo
     parallelism: 3
     steps:
       - checkout
       - browser-tools/install-chrome
       - node/install-packages
+      - run: npm install
       - run:
           name: print current working directory
           command: pwd
@@ -23,7 +25,7 @@ jobs:
           name: run tests
           command: |
             TEST=$(circleci tests glob "tests/*.js" | circleci tests split --split-by=timings)
-            npm run testcafe $TEST -- --reporter xunit:reports/xunit.xml --screenshots artifacts/screenshots --video artifacts/video
+            npm run testcafe @$TEST -- --reporter xunit:reports/xunit.xml --screenshots artifacts/screenshots --video artifacts/video
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
