@@ -11,11 +11,8 @@ jobs:
   sanity:
     docker:
       - image: cimg/node:12.16
-    working_directory: "~/project"
     parallelism: 3
     steps:
-      - checkout:
-          path: "~/project"
       - browser-tools/install-chrome
       - node/install-packages
       - run:

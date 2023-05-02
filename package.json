@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts":{
-    "test": "testcafe chrome $(cat /tmp/tests-to-run) -r xunit:reports/xunit.xml"
+    "test": "testcafe chrome $(cat /tmp/tests-to-run) -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0"

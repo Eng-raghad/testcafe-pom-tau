@@ -18,6 +18,6 @@
     "reporter":
         {
         "name": "xunit",
-        "output": "reports/xunit.xml"
+        "output": "artifacts/reports/xunit_results.xml"
         }
 }
