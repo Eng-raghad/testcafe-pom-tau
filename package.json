@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
-  },
   "author": "",
   "license": "ISC",
+  "scripts":{
+    "test": "testcafe chrome $(cat /tmp/tests-to-run) -r xunit:/tmp/test-results/testcafe/results.xml"
+  },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0"
   },

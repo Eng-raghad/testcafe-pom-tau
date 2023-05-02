@@ -1,8 +1,8 @@
 {
-    "browsers": "chrome",
+    "browsers": ["chrome:headless"],
     "src": "tests",
     "screenshots": {
-        "path": "screenshots",
+        "path": "reports/screenshots",
         "takeOnFails": true,
         "fullPage": true
     },
@@ -15,5 +15,9 @@
     "selectorTimeout": 30000,
     "assertionTimeout": 1000,
     "pageLoadTimeout": 1000,
-    "speed": 0.1
+    "reporter":
+        {
+        "name": "xunit",
+        "output": "artifacts/reports/xunit_results.xml"
+        }
 }

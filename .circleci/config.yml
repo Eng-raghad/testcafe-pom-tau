@@ -4,21 +4,34 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  node: circleci/node@4.7
-  browser-tools: circleci/browser-tools@1.1.0
+  node: circleci/node@5.0.1
+  browser-tools: circleci/browser-tools@1.4.0
 
 jobs: 
   sanity:
     docker:
       - image: cimg/node:lts-browsers
+    environment:
+        CIRCLE_WORKING_DIRECTORY: /home/circleci/project/
+    parallelism: 3
     steps:
       - checkout
-      - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
       - node/install-packages
       - run:
-          command: npm run test
+          name: print current working directory
+          command: pwd
+      - run:
+          name: run tests
+          command: |
+            circleci tests glob $CIRCLE_WORKING_DIRECTORY/tests/*.js | circleci tests split --split-by=timings > /tmp/tests-to-run
+            npm run test 
       - store_test_results:
-          path: /tmp/test-results    
+          path: /tmp/test-results
+      - store_artifacts: 
+          path: artifacts/screenshots
+      - store_artifacts:
+          path: artifacts/recordings
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
